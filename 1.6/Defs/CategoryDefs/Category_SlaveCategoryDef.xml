@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <CustomSlaveCategory>
+    <defName>Worker</defName>
+    <label>worker</label>
+  </CustomSlaveCategory>
+  <CustomSlaveCategory>
+    <defName>Military</defName>
+    <label>military</label>
+  </CustomSlaveCategory>
+  <CustomSlaveCategory>
+    <defName>Concubine</defName>
+    <label>concubine</label>
+  </CustomSlaveCategory>
+  <CustomSlaveCategory>
+    <defName>Administrative</defName>
+    <label>administrative</label>
+  </CustomSlaveCategory>
+</Defs>

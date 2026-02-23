@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- UI -->
+  <SlaveQuest.UI.SuccessQuest>'{0}' expresses their gratitude. You have received {1}.</SlaveQuest.UI.SuccessQuest>
+  <SlaveQuest.UI.TargetArrested>The slave has been arrested.</SlaveQuest.UI.TargetArrested>
+  <SlaveQuest.UI.TargetKilled>The slave has died.</SlaveQuest.UI.TargetKilled>
+  <SlaveQuest.UI.TargetDespawned>The slave has disappeared.</SlaveQuest.UI.TargetDespawned>
+  <SlaveQuest.UI.MapRemoved>The settlement has been removed; the quest has ended.</SlaveQuest.UI.MapRemoved>
+  <SlaveQuest.UI.CantAcceptQuest>There are no slaves who satisfied requirements.</SlaveQuest.UI.CantAcceptQuest>
+  <SlaveQuest.UI.RequireSkillValue>over {0}</SlaveQuest.UI.RequireSkillValue>
+
+  <!-- Config -->
+  <SlaveQuest.Config.Tittle>Slave Contract Quest</SlaveQuest.Config.Tittle>
+  <SlaveQuest.Config.QuestGenerateRate.Label>QuestGenRate</SlaveQuest.Config.QuestGenerateRate.Label>
+  <SlaveQuest.Config.QuestGenerateRate.Description>Sets how often quests occur</SlaveQuest.Config.QuestGenerateRate.Description>
+  <SlaveQuest.Config.DefaultValue.Label>Default</SlaveQuest.Config.DefaultValue.Label>
+  <SlaveQuest.Config.Reset.Label>Reset</SlaveQuest.Config.Reset.Label>
+</LanguageData>

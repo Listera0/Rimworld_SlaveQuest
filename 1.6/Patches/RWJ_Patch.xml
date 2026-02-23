@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>RimJobWorld</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationSequence">
+          <success>Always</success>
+          <operations>
+            <li Class="PatchOperationTest">
+              <xpath>Defs/TraitDef[defName="Nymphomaniac"]</xpath>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="WorkerTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Nymphomaniac</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="MilitaryTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Nymphomaniac</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="ConcubineTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Nymphomaniac</traitDef>
+                  <degree>0</degree>
+                  <value>100</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="AdministrativeTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Nymphomaniac</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+          </operations>
+        </li>
+
+        <li Class="PatchOperationSequence">
+          <success>Always</success>
+          <operations>
+            <li Class="PatchOperationTest">
+              <xpath>Defs/TraitDef[defName="Rapist"]</xpath>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="WorkerTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Rapist</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="MilitaryTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Rapist</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="ConcubineTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Rapist</traitDef>
+                  <degree>0</degree>
+                  <value>0</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="AdministrativeTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Rapist</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+          </operations>
+        </li>
+
+        <li Class="PatchOperationSequence">
+          <success>Always</success>
+          <operations>
+            <li Class="PatchOperationTest">
+              <xpath>Defs/TraitDef[defName="Necrophiliac"]</xpath>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="WorkerTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Necrophiliac</traitDef>
+                  <degree>0</degree>
+                  <value>-100</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="MilitaryTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Necrophiliac</traitDef>
+                  <degree>0</degree>
+                  <value>100</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="ConcubineTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Necrophiliac</traitDef>
+                  <degree>0</degree>
+                  <value>0</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="AdministrativeTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Necrophiliac</traitDef>
+                  <degree>0</degree>
+                  <value>-100</value>
+                </li>
+              </value>
+            </li>
+          </operations>
+        </li>
+
+        <li Class="PatchOperationSequence">
+          <success>Always</success>
+          <operations>
+            <li Class="PatchOperationTest">
+              <xpath>Defs/TraitDef[defName="Zoophile"]</xpath>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="WorkerTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Zoophile</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="MilitaryTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Zoophile</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="ConcubineTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Zoophile</traitDef>
+                  <degree>0</degree>
+                  <value>200</value>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/CustomTraitValue[defName="AdministrativeTraitValues"]/traitPrices</xpath>
+              <value>
+                <li>
+                  <traitDef>Rapist</traitDef>
+                  <degree>0</degree>
+                  <value>-200</value>
+                </li>
+              </value>
+            </li>
+          </operations>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

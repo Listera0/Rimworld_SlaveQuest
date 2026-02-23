@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- UI -->
+  <SlaveQuest.UI.SuccessQuest>'{0}'(이)가 감사를 표합니다. {1}(을)를 얻었습니다.</SlaveQuest.UI.SuccessQuest>
+  <SlaveQuest.UI.TargetArrested>'{0}'(이)가 체포되었습니다.</SlaveQuest.UI.TargetArrested>
+  <SlaveQuest.UI.TargetKilled>'{0}'(이)가 사망했습니다.</SlaveQuest.UI.TargetKilled>
+  <SlaveQuest.UI.TargetDespawned>'{0}'(이)가 사라졌습니다.</SlaveQuest.UI.TargetDespawned>
+  <SlaveQuest.UI.MapRemoved>정착지가 사라져 퀘스트가 종료되었습니다.</SlaveQuest.UI.MapRemoved>
+  <SlaveQuest.UI.CantAcceptQuest>조건을 만족하는 노예가 없습니다.</SlaveQuest.UI.CantAcceptQuest>
+  <SlaveQuest.UI.RequireSkillValue>{0} 이상</SlaveQuest.UI.RequireSkillValue>
+
+  <!-- Config -->
+  <SlaveQuest.Config.Tittle>노예 계약 퀘스트</SlaveQuest.Config.Tittle>
+  <SlaveQuest.Config.QuestGenerateRate.Label>퀘스트 발생 확률</SlaveQuest.Config.QuestGenerateRate.Label>
+  <SlaveQuest.Config.QuestGenerateRate.Description>얼마나 자주 퀘스트가 발생하는지 설정합니다</SlaveQuest.Config.QuestGenerateRate.Description>
+  <SlaveQuest.Config.DefaultValue.Label>기본값</SlaveQuest.Config.DefaultValue.Label>
+  <SlaveQuest.Config.Reset.Label>리셋</SlaveQuest.Config.Reset.Label>
+</LanguageData>

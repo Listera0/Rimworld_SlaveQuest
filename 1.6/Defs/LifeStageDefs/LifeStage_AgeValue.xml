@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <CustomAgeWeight>
+    <defName>SQ_HumanlikeAdult_Weight</defName>
+    <ageSectionDef>HumanlikeAdult</ageSectionDef>
+    <weight>95</weight>
+  </CustomAgeWeight>
+  <CustomAgeWeight>
+    <defName>SQ_HumanlikeChild_Weight</defName>
+    <ageSectionDef>HumanlikeChild</ageSectionDef>
+    <weight>5</weight>
+  </CustomAgeWeight>
+</Defs>

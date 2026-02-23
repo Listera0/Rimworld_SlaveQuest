@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SlaveQuest.questNameRules.rulesStrings.0>questName->[slave_category_def] 노예 계약서</SlaveQuest.questNameRules.rulesStrings.0>
+  <SlaveQuest.questDescriptionRules.rulesStrings.0>questDescription->[asker_faction_name]의 [asker_nameFull](이)가 [slave_category_def] 노예를 찾고있습니다. 당신이 [asker_label]의 요구사항을 만족하는 노예를 보유하고 있다면 판매할수 있습니다.\n\n 노예 요구사항 \n[quest_requires]\n\n보상은 노예의 능력, 건강상태에 따라 달라질 수 있습니다.
+  </SlaveQuest.questDescriptionRules.rulesStrings.0>
+</LanguageData>

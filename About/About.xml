@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Slave Contract Quest</name>
+    <packageId>Listera.SlaveQuest</packageId>
+    <author>Listera</author>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+	<modVersion IgnoreIfNoMatchingField="True">1.0.0</modVersion>
+    <description>This mod is adding quest for slave contract.
+
+Another Faction requests the desired slave contract.
+If you provide the right slaves and prisoners for that contract, you will be rewarded with the right value.
+
+
+노예 계약 퀘스트를 추가하는 모드입니다.
+
+다른 팩션에서 원하는 노예 계약을 요청합니다.
+해당 계약에 적합한 노예와 죄수를 제공하면 그에 가치에 맞는 보상을 제공합니다.
+    </description>
+    <loadAfter>
+      <li>ludeon.rimworld</li>
+      <li>ludeon.rimworld.royalty</li>
+      <li>ludeon.rimworld.ideology</li>
+      <li>ludeon.rimworld.biotech</li>
+      <li>ludeon.rimworld.anomaly</li>
+      <li>ludeon.rimworld.odyssey</li>
+    </loadAfter>
+</ModMetaData>

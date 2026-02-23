@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>SlaveQuest</defName>
+    <rootSelectionWeight>5</rootSelectionWeight>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <autoAccept>false</autoAccept>
+    <isRootSpecial>false</isRootSpecial>
+    <expireDaysRange>12~15</expireDaysRange>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->[slave_category_def] Slave Proposal</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->[asker_nameFull] of [asker_faction_name] wants some [slave_category_def] slave.You can sell slave if you have slave who satisfied [asker_label] require.\n\n Require slave informations \n[quest_requires]\n\nReward will be in proportion to slave value.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="SlaveQuest.QuestNode_SlaveQuest"></root>
+  </QuestScriptDef>
+</Defs>
