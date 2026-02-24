@@ -186,7 +186,7 @@ namespace SlaveQuest
         // Total Generate System
         public void GenerateRandomRequireOption()
         {
-            for (int i = 0; i < challengeRating + 1; i++)
+            for (int i = 0; i < challengeRating; i++)
             {
                 List<int> ableToSelect = new List<int>();
                 for(int j = 0; j < 2; j++) 
