@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SlaveQuest_BreakWill.questNameRules.rulesStrings.0>questName->죄수 의지꺾기</SlaveQuest_BreakWill.questNameRules.rulesStrings.0>
+  <SlaveQuest_BreakWill.questDescriptionRules.rulesStrings.0>questDescription->[asker_faction_name]의 [asker_nameFull](이)가 노예의 의지를 꺾기를 원합니다.
+
+당신은 [prisoner_count]명의 노예를 [questDuration]일 내에 복종시켜야합니다.
+만약 제한시간을 넘길경우 [asker_faction_name](와)과의 관계가 나빠질수 있습니다.
+
+ - 노예의 의지는 [requireWill]입니다.</SlaveQuest_BreakWill.questDescriptionRules.rulesStrings.0>
+</LanguageData>

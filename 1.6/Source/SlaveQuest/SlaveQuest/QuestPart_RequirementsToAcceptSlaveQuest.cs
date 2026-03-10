@@ -16,9 +16,7 @@ namespace SlaveQuest
         {
             List<Pawn> selectedPawns = new List<Pawn>();
 
-            selectedPawns.AddRange(PawnsFinder.AllMaps_PrisonersOfColonySpawned.Where(x => x.Map != null && x.Map.IsPlayerHome));
-            if (ModsConfig.IdeologyActive) { selectedPawns.AddRange(PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_SlavesOfColony.Where(x => x.Map != null && x.Map.IsPlayerHome)); }
-
+            selectedPawns.AddRange(PawnsFinder.AllMaps_FreeColonistsAndPrisonersSpawned.Where(x => x.Map != null && x.Map.IsPlayerHome));
             foreach (Pawn pawn in selectedPawns)
             {
                 if (CanPawnAccept(pawn))

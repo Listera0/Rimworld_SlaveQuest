@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SlaveQuest_Contract.questNameRules.rulesStrings.0>questName->[slave_category_def] 奴隷契約書</SlaveQuest_Contract.questNameRules.rulesStrings.0>
+  <SlaveQuest_Contract.questDescriptionRules.rulesStrings.0>questDescription->[asker_faction_name]の[asker_nameFull]が、[slave_category_def]の奴隷を探しています。 あなたが[asker_label]の要求を満たす奴隷を所有している場合、売却することが可能です。
+  
+ 奴隷の要求事項
+[quest_requires]
+
+報酬は奴隷の能力や健康状態によって変動する場合があります。</SlaveQuest_Contract.questDescriptionRules.rulesStrings.0>
+</LanguageData>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 using Verse.Noise;
 
@@ -14,8 +15,6 @@ namespace SlaveQuest
     {
         public string inSignal;
         public string outSignal;
-
-        public int challengeRating;
         public CustomValues customValues;
         public RequireOptions requireOptions;
         public string askerName;
@@ -23,7 +22,7 @@ namespace SlaveQuest
         public override void Notify_QuestSignalReceived(Signal signal)
         {
             base.Notify_QuestSignalReceived(signal);
-            if (signal.tag == inSignal + ".LeftMap")
+            if (signal.tag == inSignal)
             {
                 Map map = QuestGen_Get.GetMap();
                 Thing silver = ThingMaker.MakeThing(ThingDefOf.Silver);
@@ -43,14 +42,6 @@ namespace SlaveQuest
                 Find.LetterStack.ReceiveLetter("LetterQuestCompletedLabel".Translate(), "SlaveQuest.UI.SuccessQuest".Translate(askerName, silver.Label), LetterDefOf.PositiveEvent, lookTargets: silver, quest: quest, playSound: true );
                 quest?.Notify_SignalReceived(new Signal(outSignal));
             }
-        }
-
-        public void InitSetting(int challengeRate, CustomValues customValue, RequireOptions requireOption, string name)
-        {
-            challengeRating = challengeRate;
-            customValues = customValue;
-            requireOptions = requireOption;
-            askerName = name;
         }
 
         public int GetSlavePrice()
@@ -96,11 +87,31 @@ namespace SlaveQuest
                 }
             }
 
-            float HPFactor = pawn.MarketValue / pawn.GetStatValue(StatDefOf.MarketValueIgnoreHp);
-            finalValue *= HPFactor;
+            finalValue *= PawnHPFactor(pawn, out float HPFactor);
 
-            float challengeRatingValue = challengeRating == 3 ? 1.25f : challengeRating == 2 ? 1.1f : 1.0f;
+            float challengeRatingValue = quest.challengeRating == 3 ? 1.25f : quest.challengeRating == 2 ? 1.1f : 1.0f;
             return (int)(finalValue * challengeRatingValue);
+        }
+
+        public float PawnHPFactor(Pawn pawn, out float HPFactor)
+        {
+            float num = 1f;
+            num *= Mathf.Lerp(0.199999988f, 1f, pawn.health.summaryHealth.SummaryHealthPercent);
+            List<PawnCapacityDef> allDefsListForReading = DefDatabase<PawnCapacityDef>.AllDefsListForReading;
+            for (int i = 0; i < allDefsListForReading.Count; i++)
+            {
+                if (!pawn.health.capacities.CapableOf(allDefsListForReading[i]))
+                {
+                    num *= 0.6f;
+                    continue;
+                }
+
+                float t = PawnCapacityUtility.CalculateCapacityLevel(pawn.health.hediffSet, allDefsListForReading[i], null, forTradePrice: true);
+                num *= Mathf.Lerp(0.5f, 1f, t);
+            }
+
+            HPFactor = num;
+            return num;
         }
 
         public override void ExposeData()
@@ -108,7 +119,6 @@ namespace SlaveQuest
             base.ExposeData();
             Scribe_Values.Look(ref inSignal, "inSignal");
             Scribe_Values.Look(ref outSignal, "outSignal");
-            Scribe_Values.Look(ref challengeRating, "challengeRating");
             Scribe_Deep.Look(ref customValues, "customValues");
             Scribe_Deep.Look(ref requireOptions, "requireOptions");
             Scribe_Values.Look(ref askerName, "askerName");

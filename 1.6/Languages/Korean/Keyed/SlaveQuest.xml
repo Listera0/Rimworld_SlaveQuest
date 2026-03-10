@@ -8,11 +8,17 @@
   <SlaveQuest.UI.MapRemoved>정착지가 사라져 퀘스트가 종료되었습니다.</SlaveQuest.UI.MapRemoved>
   <SlaveQuest.UI.CantAcceptQuest>조건을 만족하는 노예가 없습니다.</SlaveQuest.UI.CantAcceptQuest>
   <SlaveQuest.UI.RequireSkillValue>{0} 이상</SlaveQuest.UI.RequireSkillValue>
+  <SlaveQuest.UI.Label.PrisonerArrive>죄수 도착</SlaveQuest.UI.Label.PrisonerArrive>
+  <SlaveQuest.UI.Text.PrisonerArrive>당신이 의지를 꺾어야 할 노예가 도착했습니다.</SlaveQuest.UI.Text.PrisonerArrive>
+  <SlaveQuest.UI.Label.CollectorArrive>노예 인도자 도착</SlaveQuest.UI.Label.CollectorArrive>
+  <SlaveQuest.UI.Text.CollectorArrive>노예를 회수하기 위해 {0}에서 사람들이 도착했습니다.</SlaveQuest.UI.Text.CollectorArrive>
 
   <!-- Config -->
   <SlaveQuest.Config.Tittle>노예 계약 퀘스트</SlaveQuest.Config.Tittle>
-  <SlaveQuest.Config.QuestGenerateRate.Label>퀘스트 발생 확률</SlaveQuest.Config.QuestGenerateRate.Label>
-  <SlaveQuest.Config.QuestGenerateRate.Description>얼마나 자주 퀘스트가 발생하는지 설정합니다</SlaveQuest.Config.QuestGenerateRate.Description>
+  <SlaveQuest.Config.QuestGenerateRate_Contract.Label>계약 퀘스트 발생 확률</SlaveQuest.Config.QuestGenerateRate_Contract.Label>
+  <SlaveQuest.Config.QuestGenerateRate_Contract.Description>얼마나 자주 계약 퀘스트가 발생하는지 설정합니다</SlaveQuest.Config.QuestGenerateRate_Contract.Description>
+  <SlaveQuest.Config.QuestGenerateRate_BreakWill.Label>의지꺾기 퀘스트 발생 확률</SlaveQuest.Config.QuestGenerateRate_BreakWill.Label>
+  <SlaveQuest.Config.QuestGenerateRate_BreakWill.Description>얼마나 자주 의지꺾기 퀘스트가 발생하는지 설정합니다</SlaveQuest.Config.QuestGenerateRate_BreakWill.Description>
   <SlaveQuest.Config.DefaultValue.Label>기본값</SlaveQuest.Config.DefaultValue.Label>
   <SlaveQuest.Config.Reset.Label>리셋</SlaveQuest.Config.Reset.Label>
 </LanguageData>

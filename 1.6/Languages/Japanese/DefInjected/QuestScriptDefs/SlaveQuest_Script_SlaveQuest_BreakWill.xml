@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SlaveQuest_BreakWill.questNameRules.rulesStrings.0>questName->囚人の意志をくじく</SlaveQuest_BreakWill.questNameRules.rulesStrings.0>
+  <SlaveQuest_BreakWill.questDescriptionRules.rulesStrings.0>questDescription->[asker_faction_name]の[asker_nameFull]が、奴隷の意志を屈服させることを望んでいます。
+
+あなたは[prisoner_count]名の奴隷を、[questDuration]日以内に服従させなければなりません。
+期限を過ぎると、[asker_faction_name]との関係が悪化する恐れがあります。
+
+ - 奴隷の意志：[requireWill]</SlaveQuest_BreakWill.questDescriptionRules.rulesStrings.0>
+</LanguageData>

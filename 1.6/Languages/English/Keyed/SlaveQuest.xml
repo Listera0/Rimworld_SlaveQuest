@@ -8,11 +8,19 @@
   <SlaveQuest.UI.MapRemoved>The settlement has been removed; the quest has ended.</SlaveQuest.UI.MapRemoved>
   <SlaveQuest.UI.CantAcceptQuest>There are no slaves who satisfied requirements.</SlaveQuest.UI.CantAcceptQuest>
   <SlaveQuest.UI.RequireSkillValue>over {0}</SlaveQuest.UI.RequireSkillValue>
+  <SlaveQuest.UI.Label.PrisonerArrive>The Arrival of Prisoner</SlaveQuest.UI.Label.PrisonerArrive>
+  <SlaveQuest.UI.Text.PrisonerArrive>There's some prisoner that break the will target</SlaveQuest.UI.Text.PrisonerArrive>
+  <SlaveQuest.UI.Label.CollectorArrive>The Arrival of Slave Collector</SlaveQuest.UI.Label.CollectorArrive>
+  <SlaveQuest.UI.Text.CollectorArrive>People arrived from (0) to retrieve the slaves.</SlaveQuest.UI.Text.CollectorArrive>
 
   <!-- Config -->
   <SlaveQuest.Config.Tittle>Slave Contract Quest</SlaveQuest.Config.Tittle>
   <SlaveQuest.Config.QuestGenerateRate.Label>QuestGenRate</SlaveQuest.Config.QuestGenerateRate.Label>
   <SlaveQuest.Config.QuestGenerateRate.Description>Sets how often quests occur</SlaveQuest.Config.QuestGenerateRate.Description>
+  <SlaveQuest.Config.QuestGenerateRate_Contract.Label>QuestGenRate of Contract</SlaveQuest.Config.QuestGenerateRate_Contract.Label>
+  <SlaveQuest.Config.QuestGenerateRate_Contract.Description>Sets how often contract quests occur</SlaveQuest.Config.QuestGenerateRate_Contract.Description>
+  <SlaveQuest.Config.QuestGenerateRate_BreakWill.Label>QuestGenRate of Break the Will</SlaveQuest.Config.QuestGenerateRate_BreakWill.Label>
+  <SlaveQuest.Config.QuestGenerateRate_BreakWill.Description>Sets how often break the will quests occur</SlaveQuest.Config.QuestGenerateRate_BreakWill.Description>
   <SlaveQuest.Config.DefaultValue.Label>Default</SlaveQuest.Config.DefaultValue.Label>
   <SlaveQuest.Config.Reset.Label>Reset</SlaveQuest.Config.Reset.Label>
 </LanguageData>

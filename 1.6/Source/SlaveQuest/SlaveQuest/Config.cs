@@ -30,17 +30,20 @@ namespace SlaveQuest
 
     public class SlaveQuest_Config : ModSettings
     {
-        public static float QuestGenerateRate = 1.0f;
+        public static float QuestGenerateRate_Contract = 1.0f;
+        public static float QuestGenerateRate_BreakWill = 1.0f;
 
         public static void ResetConfig()
         {
-            QuestGenerateRate = 1.0f;
+            QuestGenerateRate_Contract = 1.0f;
+            QuestGenerateRate_BreakWill = 1.0f;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref QuestGenerateRate, "QuestGenerateRate", 1.0f);
+            Scribe_Values.Look(ref QuestGenerateRate_Contract, "QuestGenerateRate_Contract", 1.0f);
+            Scribe_Values.Look(ref QuestGenerateRate_BreakWill, "QuestGenerateRate_BreakWill", 1.0f);
         }
 
         public static void DoWindowContents(Rect inRect)
@@ -52,10 +55,14 @@ namespace SlaveQuest
             listingStandard.ColumnWidth = viewRect.width / 2f;
             listingStandard.Begin(viewRect);
             listingStandard.Gap(50f);
-            string defaultValueLabel = ((QuestGenerateRate == 1.0f) ? (" (" + "SlaveQuest.Config.DefaultValue.Label".Translate().ToString() + ")") : "");
-            listingStandard.Label("SlaveQuest.Config.QuestGenerateRate.Label".Translate() + " " + (QuestGenerateRate * 100).ToString("F1") + "%" + defaultValueLabel, -1.0f, "SlaveQuest.Config.QuestGenerateRate.Description".Translate());
+            string defaultValueLabel1 = ((QuestGenerateRate_Contract == 1.0f) ? (" (" + "SlaveQuest.Config.DefaultValue.Label".Translate().ToString() + ")") : "");
+            listingStandard.Label("SlaveQuest.Config.QuestGenerateRate_Contract.Label".Translate() + " " + (QuestGenerateRate_Contract * 100).ToString("F1") + "%" + defaultValueLabel1, -1.0f, "SlaveQuest.Config.QuestGenerateRate_Contract.Description".Translate());
             listingStandard.Gap(5f);
-            QuestGenerateRate = listingStandard.Slider(QuestGenerateRate, 0.1f, 5.0f);
+            QuestGenerateRate_Contract = listingStandard.Slider(QuestGenerateRate_Contract, 0.0f, 5.0f);
+            string defaultValueLabel2 = ((QuestGenerateRate_Contract == 1.0f) ? (" (" + "SlaveQuest.Config.DefaultValue.Label".Translate().ToString() + ")") : "");
+            listingStandard.Label("SlaveQuest.Config.QuestGenerateRate_BreakWill.Label".Translate() + " " + (QuestGenerateRate_BreakWill * 100).ToString("F1") + "%" + defaultValueLabel2, -1.0f, "SlaveQuest.Config.QuestGenerateRate_BreakWill.Description".Translate());
+            listingStandard.Gap(5f);
+            QuestGenerateRate_BreakWill = listingStandard.Slider(QuestGenerateRate_BreakWill, 0.0f, 5.0f);
             listingStandard.Gap(15f);
             Rect lineRect = listingStandard.GetRect(30f);
             Rect buttonRect = new Rect(lineRect.x, lineRect.y, 100f, lineRect.height);
