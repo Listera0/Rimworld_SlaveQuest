@@ -14,6 +14,7 @@ namespace SlaveQuest
     public class QuestNode_SlaveQuest_BreakWill : QuestNode
     {
         public int challengeRating = 1;
+        public float challengeValue = 1.0f;
         public float questDuration = 10;
 
         protected override bool TestRunInt(Slate slate)
@@ -33,7 +34,7 @@ namespace SlaveQuest
             Map map = QuestGen_Get.GetMap();
 
             // <-- Generate Quest Require -->
-            GenerateQuestChallengeRating(slate.Get<float>("points"), out challengeRating);
+            GenerateQuestChallengeRating(out challengeRating, out challengeValue);
             GenerateWillValue(challengeRating, out float requireWill);
             GenerateAskerPawn(quest, out Pawn asker);
             GeneratePrisonerPawn(quest, asker, requireWill, out List <Pawn> prisoners);
@@ -130,7 +131,7 @@ namespace SlaveQuest
 
             // <-- QuestPart_GiveRewards-->
             RewardsGeneratorParams rewardsGeneratorParams = new RewardsGeneratorParams();
-            rewardsGeneratorParams.rewardValue = slate.Get<float>("points");
+            rewardsGeneratorParams.rewardValue = slate.Get<float>("points") * challengeValue;
             rewardsGeneratorParams.giverFaction = asker.Faction;
             rewardsGeneratorParams.allowRoyalFavor = ModsConfig.RoyaltyActive;
             rewardsGeneratorParams.allowGoodwill = true;
@@ -169,14 +170,13 @@ namespace SlaveQuest
             return false;
         }
 
-        public void GenerateQuestChallengeRating(float point, out int value)
+        public void GenerateQuestChallengeRating(out int rate, out float value)
         {
-            // 20000 over : allow rank 2 | 50000 over : allow rank 3 & maximum rank2 | 70000 over : maximum rank3
-            int pointValue = Rand.Range(0, 30 + (int)Math.Min(point / 1000, 70));
+            float wealth = Find.CurrentMap.PlayerWealthForStoryteller;
+            int pointValue = Rand.Range(0, 30 + (int)Math.Min(wealth / 2500, 70));
 
-            if (pointValue < 50) value = 1;
-            else if (pointValue < 80) value = 2;
-            else { value = 3; }
+            rate = pointValue > 80 ? 3 : pointValue > 50 ? 2 : 1;
+            value = rate == 3 ? 2.5f : rate == 2 ? 1.5f : 1.0f;
         }
 
         public void GenerateWillValue(int challenge, out float value)
@@ -186,7 +186,7 @@ namespace SlaveQuest
             else if (challenge == 2) { value = Rand.Range(10, 13); }
             else { value = Rand.Range(14, 21); }
 
-            questDuration = value + (challengeRating == 3 ? 1 : (challengeRating == 2) ? 2 : 3);
+            questDuration = value + (challengeRating == 3 ? 5 : (challengeRating == 2) ? 4 : 3);
         }
 
         public void GenerateAskerPawn(Quest quest, out Pawn pawn)

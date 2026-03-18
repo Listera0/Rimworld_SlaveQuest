@@ -8,3 +8,12 @@ v1.0.2 (2026.03.10) --------------------------
 - Change HPFactor calculation method to be similer to the original
 - Add new quest that break the slaves will
 - Add new Language (Japanese)
+
+v1.0.3 (2026.03.18) --------------------------
+- Fix challengerate increase with wealth instead raid points
+- Fix reward value within challengerate of 'breakwill quest'
+- Change slave require easier of 'contract quest'
+  - rank 1 -> only require one trait
+  - rank 2 -> one trait + one skill / two skills
+  - rank 3 -> two traits / one trait + two skills / xenotype + one trait / xenotype + two skills 
+  - reward get more value rank 3 quest, less value rank 1 quest

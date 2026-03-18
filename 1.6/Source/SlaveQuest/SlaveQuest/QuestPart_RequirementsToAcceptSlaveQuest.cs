@@ -14,14 +14,16 @@ namespace SlaveQuest
 
         public override AcceptanceReport CanAccept()
         {
-            List<Pawn> selectedPawns = new List<Pawn>();
+            var selectedPawns = PawnsFinder.AllMaps_FreeColonistsAndPrisonersSpawned;
 
-            selectedPawns.AddRange(PawnsFinder.AllMaps_FreeColonistsAndPrisonersSpawned.Where(x => x.Map != null && x.Map.IsPlayerHome));
             foreach (Pawn pawn in selectedPawns)
             {
-                if (CanPawnAccept(pawn))
+                if (pawn.Map != null && pawn.Map.IsPlayerHome)
                 {
-                    return true;
+                    if (CanPawnAccept(pawn))
+                    {
+                        return true;
+                    }
                 }
             }
 
@@ -30,14 +32,19 @@ namespace SlaveQuest
 
         public override bool CanPawnAccept(Pawn p)
         {
-            if (p.genes.Xenotype != requireOptions.xenotype) { return false; }
-            if (p.ageTracker.CurLifeStage != requireOptions.lifeStage) { return false; }
-
-            if (requireOptions.traits.Count != 0 && p.story.traits.allTraits.Count != 0)
+            if(ModsConfig.BiotechActive && requireOptions.xenotype != null)
             {
-                foreach(Trait req_Trait in requireOptions.traits)
+                if (requireOptions.xenotype != null && p.genes?.Xenotype != requireOptions.xenotype) return false;
+                if (requireOptions.lifeStage != null && p.ageTracker?.CurLifeStage != requireOptions.lifeStage) return false;
+            }
+
+            if (requireOptions.traits.Count != 0)
+            {
+                if(p.story.traits.allTraits.Count == 0) { return false; }
+
+                foreach (Trait req_Trait in requireOptions.traits)
                 {
-                    if (!p.story.traits.allTraits.Contains(req_Trait)) { return false; }
+                    if (!p.story.traits.HasTrait(req_Trait.def, req_Trait.Degree)) { return false; }
                 }
             }
 

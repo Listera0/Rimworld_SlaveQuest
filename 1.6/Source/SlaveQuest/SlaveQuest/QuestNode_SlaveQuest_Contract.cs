@@ -121,9 +121,8 @@ namespace SlaveQuest
             customValues = new CustomValues();
 
             // <-- Generate Quest Require -->
-            GenerateQuestChallengeRating(slate.Get<float>("points"), out challengeRating);
+            GenerateQuestChallengeRating(out challengeRating);
             GenerateAskerPawn(quest, out Pawn asker);
-            GenerateRandomXenotype();
             GenerateRandomRequireOption();
             GenerateSlaveEstimatedPrice();
 
@@ -189,53 +188,76 @@ namespace SlaveQuest
         // Total Generate System
         public void GenerateRandomRequireOption()
         {
-            for (int i = 0; i < challengeRating; i++)
+            switch (challengeRating)
             {
-                List<int> ableToSelect = new List<int>();
-                for(int j = 0; j < 2; j++) 
-                { 
-                    if (CheckAbleToAddRequire(j)) ableToSelect.Add(j); 
-                }
-                if (ableToSelect.Count == 0) break;
-                int select = ableToSelect.RandomElement();
-                GenerateRequireOptionWithIndex(select);
+                case 1:
+                    GenerateRandomTraitPositive();
+                    break;
+                case 2:
+                    int randValue1 = Rand.Range(0, 2);
+                    if (randValue1 == 0)
+                    {
+                        GenerateRandomTraitPositive();
+                        GenerateRandomSkillPositive();
+                    }
+                    else
+                    { 
+                        GenerateRandomSkillPositive();
+                        GenerateRandomSkillPositive();
+                    }
+                    break;
+                case 3:
+                    if (!ModsConfig.BiotechActive)
+                    {
+                        int randValue2 = Rand.Range(0, 2);
+                        if (randValue2 == 0)
+                        {
+                            GenerateRandomTraitPositive();
+                            GenerateRandomTraitPositive();
+                        }
+                        else if (randValue2 == 1)
+                        {
+                            GenerateRandomTraitPositive();
+                            GenerateRandomSkillPositive();
+                            GenerateRandomSkillPositive();
+                        }
+                    }
+                    else
+                    {
+                        int randValue3 = Rand.Range(0, 4);
+                        if (randValue3 == 0)
+                        {
+                            GenerateRandomTraitPositive();
+                            GenerateRandomTraitPositive();
+                        }
+                        else if (randValue3 == 1)
+                        {
+                            GenerateRandomTraitPositive();
+                            GenerateRandomSkillPositive();
+                            GenerateRandomSkillPositive();
+                        }
+                        else if (randValue3 == 2)
+                        {
+                            GenerateRandomXenotype();
+                            GenerateRandomTraitPositive();
+                        }
+                        else if (randValue3 == 3)
+                        {
+                            GenerateRandomXenotype();
+                            GenerateRandomSkillPositive();
+                            GenerateRandomSkillPositive();
+                        }
+                    }
+                    break;
             }
 
             QuestGen.slate.Set("RequireOptions", requireOptions);
         }
 
-        public bool CheckAbleToAddRequire(int index)
+        public void GenerateQuestChallengeRating(out int value)
         {
-            switch (index)
-            {
-                case 0:
-                    if (requireOptions.lifeStage == LifeStageDefOf.HumanlikeChild && requireOptions.traits.Count == 1) break;
-                    if (requireOptions.traits.Count == 2) break;
-                    List<TraitValue> traitCandidates = customValues.GetTraitValue().traitPrices.Where(tp => tp.value > 0 && !requireOptions.traits.Any(t => t.def.defName == tp.traitDef)).ToList();
-                    if (traitCandidates.Any()) return true;
-                    break;
-                case 1:
-                    List<SkillValue> skillCandidates = customValues.GetSkillValue().skillPrices.Where(sp => sp.value >= 10 && !requireOptions.skills.Any(sd => sd.skillDef.defName == sp.skillDef)).ToList();
-                    if (skillCandidates.Any()) return true;
-                    break;
-            }
-
-            return false;
-        }
-
-        public void GenerateRequireOptionWithIndex(int index)
-        {
-            switch (index)
-            {
-                case 0: GenerateRandomTraitPositive(); break;
-                case 1: GenerateRandomSkillPositive(); break;
-            }
-        }
-
-        public void GenerateQuestChallengeRating(float point, out int value)
-        {
-            // 20000 over : allow rank 2 | 50000 over : allow rank 3 & maximum rank2 | 70000 over : maximum rank3
-            int pointValue = Rand.Range(0, 30 + (int)Math.Min(point / 1000, 70));
+            float wealth =  Find.CurrentMap.PlayerWealthForStoryteller;
+            int pointValue = Rand.Range(0, 30 + (int)Math.Min(wealth / 2500, 70));
 
             if (pointValue < 50) { value = 1; }
             else if (pointValue < 80) { value = 2; }
@@ -330,6 +352,11 @@ namespace SlaveQuest
 
         public void GenerateRandomTraitPositive()
         {
+            if (requireOptions.lifeStage == LifeStageDefOf.HumanlikeChild && requireOptions.traits.Count == 1) return;
+            if (requireOptions.traits.Count == 2) return;
+            List<TraitValue> traitCandidates = customValues.GetTraitValue().traitPrices.Where(tp => tp.value > 0 && !requireOptions.traits.Any(t => t.def.defName == tp.traitDef)).ToList();
+            if (!traitCandidates.Any()) return;
+
             List<TraitValue> candidates = customValues.GetTraitValue().traitPrices.Where(tp => tp.value > 0 && !requireOptions.traits.Any(t => t.def.defName == tp.traitDef)).ToList();
             TraitValue randomSel = customValues.GetTraitValue().traitPrices[0];
 
@@ -344,6 +371,9 @@ namespace SlaveQuest
 
         public void GenerateRandomSkillPositive() 
         {
+            List<SkillValue> skillCandidates = customValues.GetSkillValue().skillPrices.Where(sp => sp.value >= 10 && !requireOptions.skills.Any(sd => sd.skillDef.defName == sp.skillDef)).ToList();
+            if (skillCandidates.Any()) return;
+
             List<SkillValue> candidates = customValues.GetSkillValue().skillPrices.Where(sp => sp.value >= 10 && !requireOptions.skills.Any(sd => sd.skillDef.defName == sp.skillDef)).ToList();
             SkillValue randomSel = customValues.GetSkillValue().skillPrices[0];
 
@@ -389,7 +419,7 @@ namespace SlaveQuest
                 }
             }
 
-            float challengeRatingValue = challengeRating == 3 ? 1.25f : challengeRating == 2 ? 1.1f : 1.0f;
+            float challengeRatingValue = challengeRating == 3 ? 1.5f : challengeRating == 2 ? 1.2f : 0.8f;
             estimatedPrice = (int)(baseValue * challengeRatingValue);
         }
     }

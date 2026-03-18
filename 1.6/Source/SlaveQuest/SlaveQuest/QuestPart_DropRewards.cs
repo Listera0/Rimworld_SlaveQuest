@@ -89,7 +89,7 @@ namespace SlaveQuest
 
             finalValue *= PawnHPFactor(pawn, out float HPFactor);
 
-            float challengeRatingValue = quest.challengeRating == 3 ? 1.25f : quest.challengeRating == 2 ? 1.1f : 1.0f;
+            float challengeRatingValue = quest.challengeRating == 3 ? 1.5f : quest.challengeRating == 2 ? 1.2f : 0.8f;
             return (int)(finalValue * challengeRatingValue);
         }
 
